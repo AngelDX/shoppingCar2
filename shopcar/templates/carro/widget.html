@@ -1,0 +1,34 @@
+
+<table class="table dropdown-item">
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center bg-info">Carrito de compras</th>
+        </tr>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if request.session.carro.items %}
+            {% for key,value in request.session.carro.items %}
+                <tr>
+                    <td>{{ value.nombre }}</td>
+                    <td>{{ value.precio }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <td colspan="3"
+                <div class="alert alert-danger bg-danger text-center">Sin productos</div>
+            </td>
+        {% endif %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-center">Subtotal: S/. <b>{{ importe_total_carro }}</b></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="{% url 'carro:ver_carro' %}" class="btn btn-primary form-control">Ir a mi carro</a></td>
+        </tr>
+    </tfoot>
+</table>
