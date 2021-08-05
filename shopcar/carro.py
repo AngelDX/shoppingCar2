@@ -56,7 +56,7 @@ class Carro:
                     break
         self.guardar_carro()
     
-    def limpiar_carro(self,producto):
+    def limpiar_carro(self):
         carro=self.session["carro"]={}
         self.session.modified=True
 

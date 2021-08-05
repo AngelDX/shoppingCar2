@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="row mb-5 justify-content-center">
+    <div class="card col-lg-8">
+        <div class="card-header text-center"><h5 class="card-title"><i class="fa fa-user fa-1x"></i> Datos Personales</h5></div>
+        <div class="card-body">
+            <form class="row g-3" method="POST">
+            {% csrf_token %}
+             <input type="hidden" name="total" value="{{ importe_total_carro }}">   
+                <div class="col-md-6">
+                    <label class="form-label required">Email</label>
+                    {{ form.correo }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label required">Telefono / Movil</label>
+                    {{ form.celular }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label required">Nombre</label>
+                    {{ form.nombre }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label required">Apellidos</label>
+                    {{ form.apellidos }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label required">Tipo del documento</label>
+                    {{ form.tdocumento }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label required">Documento</label>
+                    {{ form.documento }}
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label required">Dirección</label>
+                    {{ form.direccion }}
+                </div>
+                <div class="col-12">                    
+                    <div class="form-check">
+                    {{ form.tdatos }}
+                    <label class="form-check-label required" for="gridCheck">
+                        Acepto el tratamiento de datos personales.
+                    </label>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary">Proforma</button>
+                </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
